@@ -3,6 +3,8 @@ package com.mytests.spring.jpa.springhibernatesubselect;
 import org.hibernate.annotations.Immutable;
 import org.hibernate.annotations.Subselect;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -14,28 +16,29 @@ import javax.persistence.Id;
  */
 @Entity
 @Immutable
-@Subselect("select p.id as id, CONCAT_WS( ' ', p.FIRST_NAME, p.LAST_NAME )  as full_name, p.PASSPORT as passport  from PERSON p where p.AGE > 18 ")
+@Subselect("select p.ID as ID, CONCAT_WS( ' ', p.FIRST_NAME, p.LAST_NAME )  as FULL_NAME, p.PASSPORT as PASSPORT  from PERSON p where p.AGE > 18")
 public class Adult {
 
     @Id
     Integer id;
-    String full_name;
+    String fullName;
     String passport;
+
+    @Basic
+    @Column(name = "FULL_NAME")
+    public String getFullName() {
+        return fullName;
+    }
 
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getFull_name() {
-        return full_name;
-    }
-
-    public void setFull_name(String name) {
-        this.full_name = name;
+    public void setFullName(String name) {
+        this.fullName = name;
     }
 
     public String getPassport() {
@@ -50,7 +53,7 @@ public class Adult {
     public String toString() {
         return "Adult{" +
                 "id=" + id +
-                ", name='" + full_name + '\'' +
+                ", name='" + fullName + '\'' +
                 ", passport='" + passport + '\'' +
                 '}';
     }
