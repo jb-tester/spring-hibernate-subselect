@@ -9,7 +9,11 @@ import org.hibernate.annotations.*;
 // TODO: add proper tests for these annotations
 @Entity
 @Table(name="USER")
-@SQLInsert( sql="INSERT INTO USER(rating, name, nickname, id) VALUES(?,upper(?),?,?)") @SQLUpdate( sql="UPDATE USER SET rating = ?, name = upper(?), nickname = ? WHERE id = ?") @SQLDelete( sql="DELETE USER WHERE id = ?") @SQLDeleteAll( sql="DELETE USER") @Loader(namedQuery = "user")
+@SQLInsert( sql="INSERT INTO USER(rating, name, nickname, id) VALUES(?,upper(?),?,?)") 
+@SQLUpdate( sql="UPDATE USER SET rating = ?, name = upper(?), nickname = ? WHERE id = ?")
+@SQLDelete( sql="DELETE USER WHERE id = ?") 
+@SQLDeleteAll( sql="DELETE USER") 
+@Loader(namedQuery = "user")
 @NamedNativeQuery(name="user", query="select id, rating, name, lower( nickname ) as nickname from USER where id= ?", resultClass = User.class)
 public class User {
     @Id
