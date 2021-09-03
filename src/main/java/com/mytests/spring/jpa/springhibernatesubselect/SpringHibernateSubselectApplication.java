@@ -11,6 +11,7 @@ public class SpringHibernateSubselectApplication implements CommandLineRunner {
     @Autowired
     private AdultsRepository adultsRepository;
     @Autowired PersonRepository personRepository;
+    @Autowired UserService userService;
     public static void main(String[] args) {
         SpringApplication.run(SpringHibernateSubselectApplication.class, args);
     }
@@ -23,6 +24,13 @@ public class SpringHibernateSubselectApplication implements CommandLineRunner {
         for (Adult adult : adultsRepository.findAll()) {
             System.out.println(adult);
         }
-        
+        userService.addUser();
+        for (User user : userService.getAllUsers()) {
+            System.out.println(user);
+        }
+
+        System.out.println(userService.getById(3));
+
+        userService.deleteUser();
     }
 }
