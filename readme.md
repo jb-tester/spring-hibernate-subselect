@@ -1,8 +1,10 @@
 ## test org.hibernate.annotations.*:
 
- - @Subselect  - done
+ - @Subselect  
  - @SQLInsert
  - @SQLUpdate
  - @SQLDelete
  - @SQLDeleteAll
  - @Loader
+ - @When
+ - @Filter,@FilterDef
