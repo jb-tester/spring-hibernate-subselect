@@ -40,8 +40,8 @@ public class SpringHibernateSubselectApplication implements CommandLineRunner {
         employeeService.fireEmployee(1);
         employeeService.displayStuff();
 
-        playerService.displayPlayers();
+        playerService.displayFilteredPlayers();
         playerService.deletePlayers();
-        playerService.displayPlayers();
+        playerService.displayFilteredPlayers();
     }
 }

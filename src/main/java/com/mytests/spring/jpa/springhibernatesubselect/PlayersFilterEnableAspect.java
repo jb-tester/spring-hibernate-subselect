@@ -10,7 +10,7 @@ import javax.persistence.EntityManager;
 
 @Aspect
 @Component
-public class EnableFilterAspect {
+public class PlayersFilterEnableAspect {
 
     @AfterReturning(
             pointcut="bean(entityManagerFactory) && execution(* createEntityManager(..))",
@@ -18,7 +18,7 @@ public class EnableFilterAspect {
     public void getSessionAfter(JoinPoint joinPoint, Object retVal) {
         if (retVal != null && EntityManager.class.isInstance(retVal)) {
             Session session = ((EntityManager) retVal).unwrap(Session.class);
-            session.enableFilter("bannedUsersFilter").setParameter("showBanned", true);
+            session.enableFilter("bannedUsersFilter").setParameter("showBanned", false);
         }
     }
 

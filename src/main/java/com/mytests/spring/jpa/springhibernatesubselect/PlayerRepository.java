@@ -12,8 +12,11 @@ import java.util.List;
  * *
  */
 public interface PlayerRepository extends CrudRepository<Player,Integer> {
-    @Query(value = "SELECT avg(points) FROM Player where banned=false or points<1000")
+    @Query(value = "SELECT avg(points) FROM Player")
     Integer findAveragePoints();
 
     List<Player> findByPointsGreaterThan(Integer points);
+    
+    @Query("select p from Player p ")
+    List<Player> allPlayers();
 }

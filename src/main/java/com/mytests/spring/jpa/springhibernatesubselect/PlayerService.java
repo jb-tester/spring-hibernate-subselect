@@ -34,15 +34,14 @@ public class PlayerService {
         System.out.println("**********************************");
         playerRepository.deleteAll(loosers);
     }
-    public void displayPlayers(){
-      //  Session session = entityManager.unwrap(Session.class);
-      //  session.enableFilter("bannedUsersFilter").setParameter("showBanned", false);
+    public void displayFilteredPlayers(){
+        
         System.out.println("======all players: ");
-        for (Player player : playerRepository.findAll()) {
+        for (Player player : playerRepository.allPlayers()) {
             System.out.println(player);
         }
         System.out.println("=====");
-       // session.disableFilter("bannedUsersFilter");
+      
     }
 
 }
