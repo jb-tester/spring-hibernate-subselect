@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS PERSON;
 DROP TABLE IF EXISTS USERS;
 DROP TABLE IF EXISTS EMPLOYEE;
+DROP TABLE IF EXISTS PLAYER;
 CREATE TABLE IF NOT EXISTS PERSON(
                                      id INT NOT NULL PRIMARY KEY,
                                      first_name VARCHAR(50) NOT NULL,
@@ -24,6 +25,15 @@ CREATE TABLE IF NOT EXISTS EMPLOYEE(
     fired BOOLEAN NOT NULL
 
 );
+CREATE TABLE IF NOT EXISTS PLAYER(
+                                       id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+                                       name VARCHAR(50) NOT NULL,
+                                       card VARCHAR(50) NOT NULL,
+                                       points INT,
+                                       banned BOOLEAN DEFAULT false
+);
+
+
 INSERT into PERSON (id,first_name, last_name, age, passport) VALUES (10, 'irina', 'petrovskaya', 51, '8888123456');
 INSERT into PERSON (id,first_name, last_name, age, passport) VALUES (20, 'andrey', 'ivanov', 51,'9999123456');
 INSERT into PERSON (id,first_name, last_name, age, passport) VALUES (30, 'vera', 'ivanova', 25,'8888888888');
@@ -34,3 +44,8 @@ INSERT into USERS (id,name ,rating, nickname) VALUES (2, 'ivan ivanov', 5, 'chie
 INSERT into EMPLOYEE(name, salary, fired) VALUES ( 'maria',50,false );
 INSERT into EMPLOYEE(name, salary, fired) VALUES ( 'anna',100,false );
 INSERT into EMPLOYEE(name, salary, fired) VALUES ( 'daria',50,false );
+INSERT INTO PLAYER(name, card, points, banned) VALUES ( 'max','123456',1000, false );
+INSERT INTO PLAYER(name, card, points, banned) VALUES ( 'piter','123765',100, false );
+INSERT INTO PLAYER(name, card, points, banned) VALUES ( 'vano','124123',500, false );
+INSERT INTO PLAYER(name, card, points, banned) VALUES ( 'alex','111111',10000, true );
+INSERT INTO PLAYER(name, card, points, banned) VALUES ( 'mike','100000',15000, true );
