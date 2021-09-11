@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "employee")
 @SQLDelete(sql = "UPDATE employee SET fired = true WHERE id=?")
-@Where(clause = "fired=false")
+@Where(clause = "fired=false")  // https://youtrack.jetbrains.com/issue/IDEA-277457
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

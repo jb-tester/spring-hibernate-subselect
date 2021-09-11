@@ -13,6 +13,7 @@ import javax.persistence.Id;
  */
 @Entity
 @SQLDeleteAll(sql="UPDATE player SET banned = true WHERE id=?")
+// https://youtrack.jetbrains.com/issue/IDEA-277980
 @FilterDef(name = "bannedUsersFilter", parameters = @ParamDef(name = "showBanned", type = "boolean"))
 @Filter(name = "bannedUsersFilter", condition = "banned = :showBanned")
 public class Player {

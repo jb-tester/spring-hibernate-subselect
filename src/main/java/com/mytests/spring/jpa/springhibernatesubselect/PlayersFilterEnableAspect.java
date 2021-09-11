@@ -16,7 +16,7 @@ public class PlayersFilterEnableAspect {
             pointcut="bean(entityManagerFactory) && execution(* createEntityManager(..))",
             returning="retVal")
     public void getSessionAfter(JoinPoint joinPoint, Object retVal) {
-        if (retVal != null && EntityManager.class.isInstance(retVal)) {
+        if (retVal instanceof EntityManager) {
             Session session = ((EntityManager) retVal).unwrap(Session.class);
             session.enableFilter("bannedUsersFilter").setParameter("showBanned", false);
         }

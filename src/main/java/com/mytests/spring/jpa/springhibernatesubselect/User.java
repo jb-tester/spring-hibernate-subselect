@@ -10,9 +10,9 @@ import org.hibernate.annotations.*;
 @Entity
 @Table(name="USERS")
 @SQLInsert( check=ResultCheckStyle.NONE, sql="INSERT INTO {h-schema}USERS (is_temp, name, nickname, rating, id) VALUES(?,upper(?),upper(?),?,?)")
-@SQLUpdate( sql="UPDATE {h-schema}USERS SET is_temp = true WHERE id = ?")
-@SQLDelete( sql="delete USERS where id=?")
-@Loader(namedQuery = "user_by_id")
+@SQLUpdate( sql="UPDATE {h-schema}USERS SET is_temp = true WHERE id = ?")  // https://youtrack.jetbrains.com/issue/IDEA-277439
+@SQLDelete( sql="delete USERS where id=?")   // https://youtrack.jetbrains.com/issue/IDEA-277452
+@Loader(namedQuery = "user_by_id")   // https://youtrack.jetbrains.com/issue/IDEA-277441
 @NamedNativeQuery(name="user_by_id", query="select id, rating, lower(name) as name, lower( nickname ) as nickname, is_temp from {h-schema}USERS where id= ?", resultClass = User.class)
 public class User {
     @Id
