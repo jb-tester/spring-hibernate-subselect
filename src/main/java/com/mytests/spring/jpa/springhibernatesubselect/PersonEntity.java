@@ -1,6 +1,6 @@
 package com.mytests.spring.jpa.springhibernatesubselect;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * *

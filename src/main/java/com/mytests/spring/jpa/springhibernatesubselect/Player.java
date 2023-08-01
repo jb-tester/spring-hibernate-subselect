@@ -2,8 +2,8 @@ package com.mytests.spring.jpa.springhibernatesubselect;
 
 import org.hibernate.annotations.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 /**
  * *

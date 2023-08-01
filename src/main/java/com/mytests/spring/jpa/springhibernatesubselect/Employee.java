@@ -3,7 +3,7 @@ package com.mytests.spring.jpa.springhibernatesubselect;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "employee")

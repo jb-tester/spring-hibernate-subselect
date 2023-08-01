@@ -6,7 +6,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.hibernate.Session;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 @Aspect
 @Component

@@ -8,8 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringHibernateSubselectApplication implements CommandLineRunner {
 
-    @Autowired
-    private AdultsRepository adultsRepository;
+    @Autowired private AdultsRepository adultsRepository;
     @Autowired PersonRepository personRepository;
     @Autowired UserService userService;
     @Autowired EmployeeService employeeService;
