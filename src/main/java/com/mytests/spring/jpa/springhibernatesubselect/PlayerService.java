@@ -31,7 +31,7 @@ public class PlayerService {
         List<Player> loosers = playerRepository.findByPointsGreaterThan(criteria);
         System.out.println("to be banned: "+loosers);
         System.out.println("**********************************");
-        playerRepository.deleteAll(loosers);
+        //playerRepository.deleteAll(loosers);
     }
     public void displayFilteredPlayers(){
         

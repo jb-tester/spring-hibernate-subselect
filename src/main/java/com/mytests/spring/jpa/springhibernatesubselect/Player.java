@@ -12,7 +12,7 @@ import jakarta.persistence.Id;
  * *
  */
 @Entity
-@SQLDeleteAll(sql="UPDATE player SET banned = true WHERE id=?")
+//@SQLDeleteAll(sql="UPDATE player SET banned = true WHERE id=?") // doesn't work in the latest version
 // https://youtrack.jetbrains.com/issue/IDEA-277980
 @FilterDef(name = "bannedUsersFilter", parameters = @ParamDef(name = "showBanned", type = Boolean.class))
 @Filter(name = "bannedUsersFilter", condition = "banned = :showBanned")
@@ -22,15 +22,13 @@ public class Player {
     private String name;
     private String card;
     private Integer points;
-    private boolean banned;
+    private Boolean banned;
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public void setBanned(boolean banned) {
-        this.banned = banned;
-    }
+
 
     public Player(String name, String card, Integer points) {
         this.name = name;
@@ -57,8 +55,12 @@ public class Player {
         return points;
     }
 
-    public boolean isBanned() {
+    public Boolean isBanned() {
         return banned;
+    }
+
+    public void setBanned(Boolean banned) {
+        this.banned = banned;
     }
 
     @Override
