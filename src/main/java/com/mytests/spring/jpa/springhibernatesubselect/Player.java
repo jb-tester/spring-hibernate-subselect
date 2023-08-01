@@ -14,7 +14,7 @@ import jakarta.persistence.Id;
 @Entity
 @SQLDeleteAll(sql="UPDATE player SET banned = true WHERE id=?")
 // https://youtrack.jetbrains.com/issue/IDEA-277980
-@FilterDef(name = "bannedUsersFilter", parameters = @ParamDef(name = "showBanned", type = "boolean"))
+@FilterDef(name = "bannedUsersFilter", parameters = @ParamDef(name = "showBanned", type = Boolean.class))
 @Filter(name = "bannedUsersFilter", condition = "banned = :showBanned")
 public class Player {
     @Id
