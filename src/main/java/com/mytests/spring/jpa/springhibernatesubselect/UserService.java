@@ -3,8 +3,8 @@ package com.mytests.spring.jpa.springhibernatesubselect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
+import jakarta.persistence.EntityManager;
+
 import java.util.List;
 import java.util.Optional;
 
