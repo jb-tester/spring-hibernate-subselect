@@ -15,6 +15,7 @@ import org.hibernate.annotations.*;
 //@Loader(namedQuery = "user_by_id")   // https://youtrack.jetbrains.com/issue/IDEA-277441
 @NamedNativeQuery(name="user_by_id", query="select id, rating, lower(name) as name, lower( nickname ) as nickname, is_temp from {h-schema}USERS where id= ?", resultClass = User.class)
 @SQLSelect(sql = "select id, rating, lower(name) as name, lower( nickname ) as nickname, is_temp from {h-schema}USERS where id= ?")
+//@HQLSelect(query = "select u from User u where u.id = ?1")
 public class User {
     @Id
     private Integer id;
