@@ -12,7 +12,7 @@ import jakarta.persistence.Id;
  * *
  */
 @Entity
-//@SQLDeleteAll(sql="UPDATE player SET banned = true WHERE id=?") // doesn't work in the latest version
+//@SQLDeleteAll(sql="UPDATE player SET banned = true WHERE id=?") // doesn't work in the latest version for some reason
 // https://youtrack.jetbrains.com/issue/IDEA-277980
 @FilterDef(name = "bannedUsersFilter", parameters = @ParamDef(name = "showBanned", type = Boolean.class))
 @Filter(name = "bannedUsersFilter", condition = "banned = :showBanned")
